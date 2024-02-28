@@ -2,9 +2,10 @@ import Header from "./_components/Header/Header";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div>
-      <Header /> {children}
-    </div>
+    <>
+      <Header />
+      {children}
+    </>
   );
 }
 

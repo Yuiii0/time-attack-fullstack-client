@@ -1,14 +1,14 @@
 export type Post = {
-  id: number;
-  authorId: number;
+  id?: number;
+  authorId?: number;
   title: string;
   content: string;
-  imgSrc: string;
-  price: 460000;
+  imgSrc?: string;
+  price: number | string;
   location: string;
-  createdAt: string;
-  updatedAt: string;
-  author: {
+  createdAt?: string;
+  updatedAt?: string;
+  author?: {
     email: string;
   };
 };

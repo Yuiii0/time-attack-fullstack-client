@@ -13,10 +13,10 @@ async function DealPage(props: { params: { dealId: string } }) {
         </div>
         <div>
           <img
-            src="https://w7.pngwing.com/pngs/665/132/png-transparent-user-defult-avatar.png"
+            src="https://secure.gravatar.com/avatar/b5df731310ce165389769473928fb706/?default=https%3A%2F%2Fus.v-cdn.net%2F5020483%2Fuploads%2Fdefaultavatar%2FK2266OAKOLNC.jpg&rating=g&size=200"
             alt="user_img"
           />
-          <p>{deal.author.email}</p>
+          <p>{deal.author?.email}</p>
           <p>{deal.location}</p>
         </div>
         <div>
