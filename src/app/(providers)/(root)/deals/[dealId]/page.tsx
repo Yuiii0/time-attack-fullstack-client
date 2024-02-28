@@ -1,15 +1,17 @@
 import api from "@/api";
 import Page from "@/components/Page";
 import randomNumber from "@/utils/randomNumber.utils";
+import ButtonGroup from "./_components/ButtonGroup";
 
 async function DealPage(props: { params: { dealId: string } }) {
   const dealId = props.params.dealId;
   const deal = await api.deals.getDeal(Number(dealId));
+
   return (
     <Page>
       <section>
         <div>
-          <img src={deal.imgSrc} alt={deal.title} />
+          <img src={deal?.imgSrc} alt={deal?.title} />
         </div>
         <div>
           <img
@@ -30,7 +32,9 @@ async function DealPage(props: { params: { dealId: string } }) {
             <span>관심 {randomNumber()}</span>
             <span>조회 {randomNumber()}</span>
           </div>
+
           <button>관심</button>
+          <ButtonGroup user={deal.author?.email} dealId={dealId} />
         </div>
       </section>
     </Page>

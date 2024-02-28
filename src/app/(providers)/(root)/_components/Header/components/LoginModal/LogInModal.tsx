@@ -25,7 +25,8 @@ function LogInModal() {
     try {
       await logIn({ email, password });
       auth.setIsLoggedIn(true);
-      router.push("/");
+      auth.setEmail(email);
+      // router.push("/");
       modal.close();
     } catch (e) {
       alert("로그인에 실패하였습니다");

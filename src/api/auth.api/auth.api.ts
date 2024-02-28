@@ -34,7 +34,7 @@ async function logIn(dto: LogInDto) {
   if (!accessToken) throw new Error("로그인에 실패하였습니다.");
 
   coreClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-
+  sessionStorage.setItem("accessToken", accessToken);
   return accessToken;
 }
 
