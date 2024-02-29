@@ -6,7 +6,7 @@ interface DealCardListProps {
 
 function DealCardList({ deals }: DealCardListProps) {
   return (
-    <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mx-auto">
       {deals?.map((deal) => (
         <li key={deal.id}>
           <DealCard deal={deal} />

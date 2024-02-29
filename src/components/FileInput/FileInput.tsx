@@ -1,4 +1,4 @@
-function FileInput() {
+function FileInput({ ...dto }) {
   return (
     <div>
       <label
@@ -12,6 +12,7 @@ function FileInput() {
         accept="image/*"
         id="input-file"
         className="hidden"
+        {...dto}
       ></input>
     </div>
   );

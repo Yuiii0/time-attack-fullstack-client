@@ -11,10 +11,10 @@ function DealCard({ deal }: DealCardProps) {
       href={`/deals/${deal.id}`}
       className="flex flex-col gap-y-5 cursor-pointer"
     >
-      <div className="w-72 h-72">
+      <div className="w-72 h-72 bg-gray-100/30 flex">
         <img
           className="w-full object-cover"
-          src={deal.imgSrc}
+          src={`http://localhost:5050/${deal?.imgSrc}`}
           alt={deal.title}
         />
       </div>

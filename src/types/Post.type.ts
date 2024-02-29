@@ -3,7 +3,7 @@ export type Post = {
   authorId?: number;
   title: string;
   content: string;
-  imgSrc?: string;
+  imgSrc?: any;
   price: number | string;
   location: string;
   createdAt?: string;

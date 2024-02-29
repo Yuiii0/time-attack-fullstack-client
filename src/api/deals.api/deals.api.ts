@@ -1,11 +1,6 @@
 import { Response } from "@/types/Response.type";
 import { coreClient } from "..";
-import {
-  CreateDealData,
-  DeleteDealData,
-  GetDealData,
-  GetDealsData,
-} from "./deals.data";
+import { DeleteDealData, GetDealData, GetDealsData } from "./deals.data";
 
 async function getDeals() {
   const response = await coreClient.get<Response<GetDealsData>>("deals");
@@ -25,7 +20,7 @@ async function getDeal(dealId: number) {
   return deal;
 }
 
-async function createDeal(dto: CreateDealData) {
+async function createDeal(dto: any) {
   await coreClient.post<Response>("deals/create", dto);
 }
 async function deleteDeal(dealId: number) {
@@ -39,7 +34,7 @@ async function deleteDeal(dealId: number) {
   return deletedDealId;
 }
 
-async function updateDeal(dealId: number, dto: CreateDealData) {
+async function updateDeal(dealId: number, dto: any) {
   const response = await coreClient.put(`/deals/${dealId}/edit`, dto);
   const data = response.data;
   if (!data.success) throw new Error(data.error.message);
@@ -47,6 +42,7 @@ async function updateDeal(dealId: number, dto: CreateDealData) {
   const deal = data.result;
   return deal;
 }
+
 async function getMyDeals() {
   const response = await coreClient.get("/my/deals");
   const data = response.data;

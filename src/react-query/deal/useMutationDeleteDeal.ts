@@ -1,12 +1,12 @@
 // import api from "@/api";
 // import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-// export default async function useMutationDeleteDeal(dealId: number) {
+// export default function useMutationUpdateDeal(dealId: number) {
 //   const queryClient = useQueryClient();
 
 //   return useMutation({
-//     mutationFn: await api.deals.deleteDeal(dealId),
-//     onSuccess: () => {
+//     mutationFn: (newDealData) => api.deals.updateDeal(dealId, newDealData), // mutationFn 수정
+//     onSuccess: () => {      /
 //       queryClient.invalidateQueries({ exact: true, queryKey: ["deal"] });
 //     },
 //   });

@@ -14,3 +14,11 @@ export type UpdateDealData = {
 export type DeleteDealData = {
   id: number;
 };
+
+export type LikedDealData = {
+  id: number;
+  userId: number;
+  postId: number;
+  createdAt: string;
+  post: Post;
+};

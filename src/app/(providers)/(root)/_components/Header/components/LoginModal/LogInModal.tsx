@@ -24,8 +24,10 @@ function LogInModal() {
 
     try {
       await logIn({ email, password });
+
       auth.setIsLoggedIn(true);
       auth.setEmail(email);
+
       // router.push("/");
       modal.close();
     } catch (e) {

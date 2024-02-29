@@ -20,10 +20,20 @@ function ButtonGroup({ user, dealId }: ButtonGroupProps) {
   };
   if (email === user) {
     return (
-      <>
-        <Link href={`/deals/${dealId}/edit`}>수정</Link>
-        <button onClick={handleClickDelete}>삭제</button>
-      </>
+      <div className="ml-auto flex gap-x-4 text-gray-500 text-[15px] items-center ">
+        <Link
+          className=" ext-gray-500 hover:text-orange-400 transition "
+          href={`/deals/${dealId}/edit`}
+        >
+          수정
+        </Link>
+        <button
+          className=" transition  text-gray-500 hover:text-orange-400"
+          onClick={handleClickDelete}
+        >
+          삭제
+        </button>
+      </div>
     );
   } else {
     <>

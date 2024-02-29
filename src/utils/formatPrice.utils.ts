@@ -1,3 +1,3 @@
-export default function formatPrice(price: number): string {
-  return `${price.toLocaleString()}원`;
+export default function formatPrice(price: number | string): string {
+  return `${price?.toLocaleString()}원`;
 }

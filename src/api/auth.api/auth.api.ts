@@ -19,6 +19,9 @@ async function signUp(dto: SignUpDto) {
 
   if (!accessToken) throw new Error("로그인에 실패하였습니다.");
   coreClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+
+  localStorage.setItem("accessToken", accessToken);
+  return accessToken;
 }
 
 async function logIn(dto: LogInDto) {
@@ -32,20 +35,15 @@ async function logIn(dto: LogInDto) {
   const accessToken = result?.accessToken;
 
   if (!accessToken) throw new Error("로그인에 실패하였습니다.");
-
   coreClient.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-  sessionStorage.setItem("accessToken", accessToken);
-  return accessToken;
-}
+  localStorage.setItem("accessToken", accessToken);
 
-async function logOut() {
-  await coreClient.delete<Response>(`/auth/log-out`);
+  return accessToken;
 }
 
 const authAPI = {
   signUp,
   logIn,
-  logOut,
 };
 
 export default authAPI;

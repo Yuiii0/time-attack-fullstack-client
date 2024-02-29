@@ -1,20 +1,36 @@
 "use client";
 
+import api from "@/api";
 import DealCardList from "@/components/DealCardList";
 import Heading from "@/components/Heading";
 import Page from "@/components/Page";
 import TabLink from "@/components/TabLink";
-import useQueryMyDeals from "@/react-query/deal/useQueryMydeals";
+import { useEffect, useState } from "react";
 
-function MyPage(props: { searchParams: { postType?: string } }) {
-  const { data: myPosts } = useQueryMyDeals();
-  let posts = [];
+function MyPage(props: { searchParams: { postType?: string | undefined } }) {
+  const postType = props.searchParams.postType || "myDeal";
+  const [posts, setPosts] = useState([]);
 
-  const postType = props.searchParams.postType;
-  if (postType === "myDeal") {
-    posts = myPosts;
-  } else {
-  }
+  useEffect(() => {
+    async function fetchDeals() {
+      console.log("postType", postType);
+      if (postType === "myDeal" || postType === undefined) {
+        const myDeals = await api.deals.getMyDeals();
+
+        console.log("myDeals", myDeals);
+        setPosts(myDeals);
+      } else {
+        const response = await api.likes.getMyLikedDeals();
+        const myLikedDeals = response.map((arr: any) => arr.post);
+        console.log("myLikedDeals", response);
+        setPosts(myLikedDeals);
+      }
+    }
+
+    if (postType) {
+      fetchDeals();
+    }
+  }, [postType]);
 
   //좋아요 포스트
 
@@ -26,7 +42,7 @@ function MyPage(props: { searchParams: { postType?: string } }) {
         <Heading>관심 판매글</Heading>
       )}
 
-      <ul className="flex gap-x-7">
+      <ul className="flex gap-x-7 pb-12">
         <TabLink
           href="/my/deals?postType=myDeal"
           label="내 판매글"
@@ -38,8 +54,8 @@ function MyPage(props: { searchParams: { postType?: string } }) {
           isActive={postType === "likedPost"}
         />
       </ul>
-      <h3></h3>
-      <DealCardList deals={posts}></DealCardList>
+
+      <DealCardList deals={posts} liked></DealCardList>
     </Page>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import api from "@/api";
 import { useAuth } from "@/contexts/auth.context";
 import { useModal } from "@/contexts/modal.context";
 import Link from "next/link";
@@ -17,13 +16,13 @@ function HeaderMenu() {
   };
 
   const handleClickLogOut = async () => {
-    await api.auth.logOut();
+    localStorage.removeItem("accessToken");
     auth.setIsLoggedIn(false);
 
     router.push("/");
   };
   return (
-    <div className="text-[15px] ml-auto flex gap-x-5 text-gray-500">
+    <div className="text-[15px] ml-auto flex gap-x-5 text-gray-500 ">
       {auth.isLoggedIn ? (
         <button
           onClick={handleClickLogOut}
