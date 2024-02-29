@@ -52,7 +52,7 @@ function MyPage(props: { searchParams: { postType?: string | undefined } }) {
         />
       </ul>
 
-      <DealCardList deals={posts} liked></DealCardList>
+      <DealCardList deals={posts}></DealCardList>
     </Page>
   );
 }
