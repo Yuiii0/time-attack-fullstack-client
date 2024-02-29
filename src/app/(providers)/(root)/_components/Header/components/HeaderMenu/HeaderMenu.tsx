@@ -26,14 +26,14 @@ function HeaderMenu() {
       {auth.isLoggedIn ? (
         <button
           onClick={handleClickLogOut}
-          className="text-[15px] ml-auto flex gap-x-5 text-gray-500"
+          className="text-[15px] ml-auto flex gap-x-5 text-gray-500 hover:text-black transition"
         >
           로그아웃
         </button>
       ) : (
         <>
           <button
-            className="hover:text-black transition"
+            className="transition text-gray-500 hover:text-black "
             onClick={handleClickLogIn}
           >
             로그인

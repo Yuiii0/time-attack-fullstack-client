@@ -33,7 +33,6 @@ function ModifyDealPage(props: { params: { dealId: string } }) {
     formData.append("location", location);
     formData.append("price", price);
     formData.append("image", image);
-    console.log("data", title, image);
 
     try {
       await api.deals.updateDeal(Number(dealId), formData);

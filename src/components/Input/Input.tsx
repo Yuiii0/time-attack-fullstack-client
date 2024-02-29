@@ -16,7 +16,7 @@ function Input({ label, large, ...props }: InputProps) {
       <input
         id={id}
         data-large={large}
-        className="rounded border data-[large=true]:py-14 px-3 py-2 w-full focus:border-orange-400 outline-none transition border-slate-200"
+        className="rounded border data-[large=true]:py-14 px-3 py-2 w-full focus:bg-transparent focus:border-orange-400 outline-none transition border-slate-200"
         {...props}
       />
     </div>

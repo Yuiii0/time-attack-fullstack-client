@@ -12,7 +12,6 @@ const LikeButton = ({ dealId }: LikeButtonProps) => {
   const [isLiked, setIsLiked] = useState(false);
 
   const handleClickLikeButton = async () => {
-    console.log("좋아요 버튼 클릭!");
     const likedState = await api.likes.toggleLikeDeal(Number(dealId));
     setIsLiked(likedState);
   };

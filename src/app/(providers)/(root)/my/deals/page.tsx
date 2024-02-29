@@ -13,16 +13,13 @@ function MyPage(props: { searchParams: { postType?: string | undefined } }) {
 
   useEffect(() => {
     async function fetchDeals() {
-      console.log("postType", postType);
       if (postType === "myDeal" || postType === undefined) {
         const myDeals = await api.deals.getMyDeals();
 
-        console.log("myDeals", myDeals);
         setPosts(myDeals);
       } else {
         const response = await api.likes.getMyLikedDeals();
         const myLikedDeals = response.map((arr: any) => arr.post);
-        console.log("myLikedDeals", response);
         setPosts(myLikedDeals);
       }
     }

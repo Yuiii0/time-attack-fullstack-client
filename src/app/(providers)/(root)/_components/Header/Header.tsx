@@ -9,14 +9,14 @@ function Header() {
       </Link>
 
       <nav className="ml-20  hidden sm:block">
-        <ul className="text-[15px]  flex gap-x-5 ">
-          <li>
+        <ul className="text-[15px]  flex gap-x-5">
+          <li className="hover:text-green-600 transition">
             <Link href={"/"}>구입하기</Link>
           </li>
-          <li>
+          <li className="hover:text-green-600 transition">
             <Link href={"/deals/create"}>판매하기</Link>
           </li>
-          <li>
+          <li className="hover:text-green-600 transition">
             <Link href={"/my/deals"}>내 판매글</Link>
           </li>
         </ul>

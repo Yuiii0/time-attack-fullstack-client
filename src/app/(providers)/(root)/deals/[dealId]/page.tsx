@@ -13,11 +13,11 @@ async function DealPage(props: { params: { dealId: string } }) {
   return (
     <Page>
       <section className="flex flex-col gap-y-5  w-3/5 min-w-96 mx-auto">
-        <div className=" h w-3/4 h-3/4 mb-8 flex justify-center mx-auto bg-gray-100/30 items-center h-80">
+        <div className="overflow-hidden w-3/4 min-w-96 mb-8 flex justify-center mx-auto bg-gray-100/30 items-center h-80">
           <img
             src={`http://localhost:5050/${deal?.imgSrc}`}
             alt={deal?.title}
-            className="object-cover"
+            className="object-cover h-full w-full"
           />
         </div>
         <div className=" rounded flex gap-x-4 border-b pb-3 overflow-hidden">
