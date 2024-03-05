@@ -15,7 +15,7 @@ async function DealPage(props: { params: { dealId: string } }) {
       <section className="flex flex-col gap-y-5  w-3/5 min-w-96 mx-auto">
         <div className="overflow-hidden w-3/4 min-w-96 mb-8 flex justify-center mx-auto bg-gray-100/30 items-center h-80">
           <img
-            src={`http://localhost:5050/${deal?.imgSrc}`}
+            src={`https://port-0-fullstack-timeattack-server-dc9c2nltdolaeh.sel5.cloudtype.app/${deal?.imgSrc}`}
             alt={deal?.title}
             className="object-cover h-full w-full"
           />

@@ -14,7 +14,7 @@ function DealCard({ deal }: DealCardProps) {
       <div className="w-72 h-72 bg-gray-100/30 flex">
         <img
           className="w-full object-cover"
-          src={`http://localhost:5050/${deal?.imgSrc}`}
+          src={`https://port-0-fullstack-timeattack-server-dc9c2nltdolaeh.sel5.cloudtype.app/${deal?.imgSrc}`}
           alt={deal.title}
         />
       </div>
