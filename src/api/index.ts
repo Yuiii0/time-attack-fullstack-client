@@ -9,7 +9,6 @@ const accessToken =
 export const coreClient = axios.create({
   baseURL:
     "https://port-0-fullstack-timeattack-server-dc9c2nltdolaeh.sel5.cloudtype.app",
-  withCredentials: true,
   headers: {
     Authorization: accessToken ? `Bearer ${accessToken}` : undefined,
   },
